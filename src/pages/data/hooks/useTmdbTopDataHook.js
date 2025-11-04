@@ -5,7 +5,7 @@ const apiToken = import.meta.env.VITE_TMDB_API_KEY;
 
 // <-------------------- function -------------------->
 
-export default function useTmdbTopData() {
+export default function useTmdbTopDataHook() {
   const [tmdbTopData, setTmdbTopData] = useState([]);
 
   // <-------------------- API : Top
@@ -27,7 +27,7 @@ export default function useTmdbTopData() {
         setTmdbTopData(res.data.results);
       })
       .catch((err) => console.error(err));
-  },[]);
+  }, []);
 
   // <-------------------- return -------------------->
 

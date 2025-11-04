@@ -3,11 +3,11 @@ import axios from "axios";
 
 const apiToken = import.meta.env.VITE_TMDB_API_KEY;
 
-export default function useTmdbKeywordData(keyword) {
+export default function useTmdbKeywordDataHook(keyword) {
   const [search, setSearch] = useState([]);
 
   useEffect(() => {
-    console.log(keyword);
+    // console.log(keyword);
 
     if (!keyword) return;
 

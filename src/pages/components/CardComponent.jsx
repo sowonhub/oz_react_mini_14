@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 // <-------------------- function, return -------------------->
 
-export default function Card({ movie }) {
+export default function CardComponent({ movie }) {
   return (
     <Container>
       <Link to={`/details/${movie.id}`}>

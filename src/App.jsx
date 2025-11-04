@@ -5,6 +5,7 @@ import MainPage from "./pages/MainPage.jsx";
 import DetailPage from "./pages/DetailPage.jsx";
 
 import { createGlobalStyle } from "styled-components";
+import InputFieldComponent from "./pages/components/InputFieldComponent.jsx";
 
 // <-------------------- function, return -------------------->
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<MainPage />} />
             <Route path="/details/:id" element={<DetailPage />} />
+            <Route path="/login" element={<InputFieldComponent />} />
           </Route>
         </Routes>
       </BrowserRouter>

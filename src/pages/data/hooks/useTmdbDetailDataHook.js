@@ -5,7 +5,7 @@ const apiToken = import.meta.env.VITE_TMDB_API_KEY;
 
 // <-------------------- function -------------------->
 
-export default function useTmdbDetailData(id) {
+export default function useTmdbDetailDataHook(id) {
   const [tmdbDetailData, setTmdbDetailData] = useState([]);
 
   // <-------------------- API : Details

@@ -1,23 +1,23 @@
 import styled from "styled-components";
 
-import NavigationBar from "./components/NavigationBar";
+import NavigationBarComponent from "./components/NavigationBarComponent";
 
 import { useParams } from "react-router-dom";
 
-import useTmdbDetailData from "./data/hooks/useTmdbDetailData";
+import useTmdbDetailDataHook from "./data/hooks/useTmdbDetailDataHook";
 
 // <-------------------- function -------------------->
 
 export default function DetailPage() {
   const { id } = useParams();
 
-  const tmdbDetail = useTmdbDetailData(id);
+  const tmdbDetail = useTmdbDetailDataHook(id);
 
   // <-------------------- return -------------------->
 
   return (
     <>
-      <NavigationBar />
+      <NavigationBarComponent />
       <Detail>
         <Poster
           className="poster"

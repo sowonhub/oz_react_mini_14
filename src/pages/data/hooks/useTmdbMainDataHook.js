@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 // <-------------------- function -------------------->
 
-export default function useTmdbMainData(keyword) {
+export default function useTmdbMainDataHook(keyword) {
   const [tmdbMainData, setTmdbMainData] = useState([]);
 
   // <-------------------- API : popular

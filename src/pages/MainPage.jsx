@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import Card from "./components/Card.jsx";
+import CardComponent from "./components/CardComponent.jsx";
 
-import useTmdbTopData from "./data/hooks/useTmdbTopData.js";
-import useTmdbMainData from "./data/hooks/useTmdbMainData.js";
-import useTmdbKeywordData from "./data/hooks/useTmdbKeywordData.js";
+import useTmdbTopDataHook from "./data/hooks/useTmdbTopDataHook.js";
+import useTmdbMainDataHook from "./data/hooks/useTmdbMainDataHook.js";
+import useTmdbKeywordDataHook from "./data/hooks/useTmdbKeywordDataHook.js";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
@@ -12,7 +12,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import { useSearchParams } from "react-router-dom";
-import NavigationBar from "./components/NavigationBar.jsx";
+import NavigationBarComponent from "./components/NavigationBarComponent.jsx";
 
 // <-------------------- function -------------------->
 
@@ -20,9 +20,9 @@ export default function MainPage() {
   const [searchParams] = useSearchParams();
   const query = searchParams.get("keyword")?.trim();
 
-  const tmdbTop = useTmdbTopData();
-  const tmdbMainData = useTmdbMainData();
-  const tmdbKeywordData = useTmdbKeywordData(query);
+  const tmdbTop = useTmdbTopDataHook();
+  const tmdbMainData = useTmdbMainDataHook();
+  const tmdbKeywordData = useTmdbKeywordDataHook(query);
 
   const tmdbData = query ? tmdbKeywordData : tmdbMainData;
 
@@ -30,7 +30,7 @@ export default function MainPage() {
 
   return (
     <>
-      <NavigationBar />
+      <NavigationBarComponent />
       <Container>
         <Top10>🏆 TOP 10</Top10>
         <Swiper
@@ -46,7 +46,7 @@ export default function MainPage() {
         >
           {tmdbTop.slice(0, 10).map((api) => (
             <SwiperSlide>
-              <Card movie={api} key={api.id} />
+              <CardComponent movie={api} key={api.id} />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -54,7 +54,7 @@ export default function MainPage() {
         <Popular>✨ Popular</Popular>
         <MainList>
           {tmdbData.map((movie) => (
-            <Card movie={movie} key={movie.id} />
+            <CardComponent movie={movie} key={movie.id} />
           ))}
         </MainList>
       </Container>

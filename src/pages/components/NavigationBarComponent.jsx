@@ -2,18 +2,18 @@ import styled from "styled-components";
 import { Link, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import useDebounce from "./hooks/useDebounce.js";
-import useTmdbKeywordData from "../data/hooks/useTmdbKeywordData.js";
+import useDebounceHook from "./hooks/useDebounceHook.js";
+import useTmdbKeywordDataHook from "../data/hooks/useTmdbKeywordDataHook.js";
 
 // <-------------------- function -------------------->
 
-export default function NavigationBar() {
+export default function NavigationBarComponent() {
   const [searchParams, setSearchParams] = useSearchParams();
   const keywordParam = searchParams.get("keyword") || "";
   const [keyword, setKeyword] = useState(keywordParam);
 
-  const debouncedKeyword = useDebounce(keyword, 100);
-  useTmdbKeywordData(debouncedKeyword);
+  const debouncedKeyword = useDebounceHook(keyword, 100);
+  useTmdbKeywordDataHook(debouncedKeyword);
 
   useEffect(() => {
     if (keyword.trim() === "") {
@@ -28,7 +28,7 @@ export default function NavigationBar() {
   // <-------------------- return -------------------->
 
   return (
-    <Navigationbar>
+    <NavigationbarComponent>
       <Link to="/" style={{ textDecoration: "none", color: "white" }}>
         <Logo>🎬 • WISH MOVIE</Logo>
       </Link>
@@ -45,13 +45,13 @@ export default function NavigationBar() {
         <LoginBtn>로그인</LoginBtn>
         <SignupBtn>회원가입</SignupBtn>
       </Buttons>
-    </Navigationbar>
+    </NavigationbarComponent>
   );
 }
 
 // <-------------------- styled-components -------------------->
 
-const Navigationbar = styled.nav`
+const NavigationbarComponent = styled.nav`
   width: 100%;
   height: 60px;
   background-color: #1a1a1a;
