@@ -4,7 +4,7 @@ import NavigationBarComponent from "./components/NavigationBarComponent";
 
 import { useParams } from "react-router-dom";
 
-import useTmdbDetailDataHook from "./data/hooks/useTmdbDetailDataHook";
+import useTmdbDetailDataHook from "./assets/data/hooks/useTmdbDetailDataHook";
 
 // <-------------------- function -------------------->
 

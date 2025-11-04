@@ -3,9 +3,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./Layout.jsx";
 import MainPage from "./pages/MainPage.jsx";
 import DetailPage from "./pages/DetailPage.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
+import SignUpPage from "./pages/SignUpPage.jsx";
 
 import { createGlobalStyle } from "styled-components";
-import InputFieldComponent from "./pages/components/InputFieldComponent.jsx";
 
 // <-------------------- function, return -------------------->
 
@@ -17,8 +18,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<MainPage />} />
-            <Route path="/details/:id" element={<DetailPage />} />
-            <Route path="/login" element={<InputFieldComponent />} />
+            <Route path="details/:id" element={<DetailPage />} />
+            <Route path="login" element={<LoginPage />} />
+            <Route path="signUp" element={<SignUpPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

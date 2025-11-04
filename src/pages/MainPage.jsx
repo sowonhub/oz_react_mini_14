@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import CardComponent from "./components/CardComponent.jsx";
 
-import useTmdbTopDataHook from "./data/hooks/useTmdbTopDataHook.js";
-import useTmdbMainDataHook from "./data/hooks/useTmdbMainDataHook.js";
-import useTmdbKeywordDataHook from "./data/hooks/useTmdbKeywordDataHook.js";
+import useTmdbTopDataHook from "./assets/data/hooks/useTmdbTopDataHook.js";
+import useTmdbMainDataHook from "./assets/data/hooks/useTmdbMainDataHook.js";
+import useTmdbKeywordDataHook from "./assets/data/hooks/useTmdbKeywordDataHook.js";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
@@ -26,6 +26,8 @@ export default function MainPage() {
 
   const tmdbData = query ? tmdbKeywordData : tmdbMainData;
 
+  const canLoop = DataTransferItemList.length > 5;
+
   // <-------------------- return -------------------->
 
   return (
@@ -39,7 +41,7 @@ export default function MainPage() {
           // pagination={{ clickable: true }}
           spaceBetween={20}
           slidesPerView={5}
-          loop
+          loop={canLoop}
           autoplay={{ display: 1000 }}
           speed={600}
           className="topSwiper"

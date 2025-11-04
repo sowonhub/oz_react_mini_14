@@ -3,7 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import useDebounceHook from "./hooks/useDebounceHook.js";
-import useTmdbKeywordDataHook from "../data/hooks/useTmdbKeywordDataHook.js";
+import useTmdbKeywordDataHook from "../assets/data/hooks/useTmdbKeywordDataHook.js";
 
 // <-------------------- function -------------------->
 
@@ -30,11 +30,12 @@ export default function NavigationBarComponent() {
   return (
     <NavigationbarComponent>
       <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-        <Logo>🎬 • WISH MOVIE</Logo>
+        <Logo>🎬 WISH MOVIE</Logo>
       </Link>
 
       <SearchBox>
         <input
+          name="serchbox"
           type="text"
           placeholder="tell me your wish 🧞‍♂️"
           value={keyword}
@@ -62,7 +63,7 @@ const NavigationbarComponent = styled.nav`
   padding: 0 40px;
   box-sizing: border-box;
   overflow: hidden;
-  gap: 50px;
+  gap: 10px;
 `;
 
 const Logo = styled.h1`

@@ -54,6 +54,10 @@ const InputFieldComponent = forwardRef(
             focus:ring-2 focus:ring-black/20 
             ${error ? "border-red-500" : "border-gray-300"} ${inputClassName}`}
           {...rest}
+          autoComplete={rest.autoComplete}
+          inputMode={rest.inputMode} // email, numeric 등
+          autoCapitalize="none"
+          spellCheck={false}
         />
 
         {hint && !error && (
