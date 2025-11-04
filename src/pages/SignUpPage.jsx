@@ -1,10 +1,13 @@
-// SignUpPage.jsx
 import { useState } from "react";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
 import InputFieldComponent from "./components/InputFieldComponent.jsx";
 
+// <-------------------- function -------------------->
+
 export default function SignUpPage() {
   const [signUp, setSignUp] = useState({
+    email: "",
     username: "",
     password: "",
     password2: "",
@@ -32,8 +35,23 @@ export default function SignUpPage() {
     // 회원가입 요청…
   };
 
+  // <-------------------- return -------------------->
+
   return (
-    <SignUpPage onSubmit={onSubmit} className="space-y-4 max-w-sm">
+    <SignUppage onSubmit={onSubmit}>
+      <InputFieldComponent
+        label="이메일"
+        name="email"
+        type="email"
+        placeholder="example@oz.co.kr"
+        value={signUp.email}
+        onChange={onChange}
+        error={errors.email}
+        required
+        autoComplete="email"
+        inputMode="email"
+      />
+
       <InputFieldComponent
         label="아이디"
         name="username"
@@ -42,6 +60,7 @@ export default function SignUpPage() {
         onChange={onChange}
         error={errors.username}
         required
+        // hint="2~8자, 숫자/한글/영문 사용"
       />
       <InputFieldComponent
         label="비밀번호"
@@ -63,12 +82,43 @@ export default function SignUpPage() {
         required
         autoComplete="new-password"
       />
-      <Link
-        to="/signup"
-        className="w-full rounded-md bg-gray-700 px-4 py-2 text-white block text-center"
-      >
-        회원가입
-      </Link>
-    </SignUpPage>
+      <PrimaryBtn type="submit">회원가입</PrimaryBtn>
+      <LinkBtn to="/login">로그인으로</LinkBtn>
+      <LinkBtn to="/">홈으로</LinkBtn>
+    </SignUppage>
   );
 }
+
+// <-------------------- styled-components -------------------->
+
+const SignUppage = styled.form`
+  max-width: 420px;
+  margin: 24px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: white;
+`;
+
+const PrimaryBtn = styled.button`
+  width: 100%;
+  border: 0;
+  border-radius: 10px;
+  padding: 12px 16px;
+  background: #374151; /* gray-700 */
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+`;
+
+const LinkBtn = styled(Link)`
+  display: block;
+  width: 100%;
+  text-align: center;
+  border-radius: 10px;
+  padding: 12px 16px;
+  background: #111827; /* gray-900 */
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+`;

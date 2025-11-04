@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import NavigationBarComponent from "./components/NavigationBarComponent";
-
 import { useParams } from "react-router-dom";
 
 import useTmdbDetailDataHook from "./assets/data/hooks/useTmdbDetailDataHook";
@@ -17,7 +15,6 @@ export default function DetailPage() {
 
   return (
     <>
-      <NavigationBarComponent />
       <Detail>
         <Poster
           className="poster"

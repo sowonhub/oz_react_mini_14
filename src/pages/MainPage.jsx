@@ -12,7 +12,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import { useSearchParams } from "react-router-dom";
-import NavigationBarComponent from "./components/NavigationBarComponent.jsx";
 
 // <-------------------- function -------------------->
 
@@ -32,7 +31,6 @@ export default function MainPage() {
 
   return (
     <>
-      <NavigationBarComponent />
       <Container>
         <Top10>🏆 TOP 10</Top10>
         <Swiper

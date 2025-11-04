@@ -35,7 +35,7 @@ export default function NavigationBarComponent() {
 
       <SearchBox>
         <input
-          name="serchbox"
+          name="q"
           type="text"
           placeholder="tell me your wish 🧞‍♂️"
           value={keyword}
@@ -43,8 +43,8 @@ export default function NavigationBarComponent() {
         />
       </SearchBox>
       <Buttons>
-        <LoginBtn>로그인</LoginBtn>
-        <SignupBtn>회원가입</SignupBtn>
+        <LoginBtn to="/login">로그인</LoginBtn>
+        <SignupBtn to="/signup">회원가입</SignupBtn>
       </Buttons>
     </NavigationbarComponent>
   );
@@ -89,17 +89,17 @@ const SearchBox = styled.div`
   }
 `;
 
-const SearchResults = styled.div`
-  position: absolute;
-  top: 70px;
-  background-color: #111;
-  width: 300px;
-  max-height: 400px;
-  overflow-y: auto;
-  color: white;
-  border-radius: 8px;
-  padding: 10px;
-`;
+// const SearchResults = styled.div`
+//   position: absolute;
+//   top: 70px;
+//   background-color: #111;
+//   width: 300px;
+//   max-height: 400px;
+//   overflow-y: auto;
+//   color: white;
+//   border-radius: 8px;
+//   padding: 10px;
+// `;
 
 const Buttons = styled.div`
   display: flex;
@@ -108,7 +108,7 @@ const Buttons = styled.div`
   flex-shrink: 0;
 `;
 
-const LoginBtn = styled.button`
+const LoginBtn = styled(Link)`
   background: none;
   color: white;
   border: 1px solid white;
@@ -117,7 +117,7 @@ const LoginBtn = styled.button`
   cursor: pointer;
 `;
 
-const SignupBtn = styled.button`
+const SignupBtn = styled(Link)`
   background-color: white;
   color: #141414;
   border: none;

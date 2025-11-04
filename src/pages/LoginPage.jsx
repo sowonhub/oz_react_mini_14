@@ -1,6 +1,9 @@
 import { useState } from "react";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
 import InputFieldComponent from "./components/InputFieldComponent.jsx";
+
+// <-------------------- function -------------------->
 
 export default function LoginPage() {
   const [login, setlogin] = useState({ email: "", password: "" });
@@ -21,8 +24,10 @@ export default function LoginPage() {
     // 로그인 로직…
   };
 
+  // <-------------------- return -------------------->
+
   return (
-    <LoginPage onSubmit={onSubmit} className="space-y-4 max-w-sm">
+    <Loginpage onSubmit={onSubmit}>
       <InputFieldComponent
         label="이메일"
         name="email"
@@ -46,12 +51,43 @@ export default function LoginPage() {
         required
         autoComplete="current-password"
       />
-      <Link
-        to="/login"
-        className="w-full rounded-md bg-gray-700 px-4 py-2 text-white block text-center"
-      >
-        로그인
-      </Link>
-    </LoginPage>
+      <PrimaryBtn type="submit">로그인</PrimaryBtn>
+      <LinkBtn to="/signup">회원가입</LinkBtn>
+      <LinkBtn to="/">홈으로</LinkBtn>
+    </Loginpage>
   );
 }
+
+// <-------------------- styled-components -------------------->
+
+const Loginpage = styled.form`
+  max-width: 360px;
+  margin: 24px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: white;
+`;
+
+const PrimaryBtn = styled.button`
+  width: 100%;
+  border: 0;
+  border-radius: 10px;
+  padding: 12px 16px;
+  background: #374151; /* gray-700 */
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+`;
+
+const LinkBtn = styled(Link)`
+  display: block;
+  width: 100%;
+  text-align: center;
+  border-radius: 10px;
+  padding: 12px 16px;
+  background: #111827;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+`;
